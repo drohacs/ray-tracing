@@ -119,5 +119,4 @@ inline vec3 random_in_unit_sphere() {
 inline vec3 random_unit_vector() {
     return unit(random_in_unit_sphere());
 }
-
 #endif
