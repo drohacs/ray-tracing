@@ -1,24 +1,18 @@
-#ifndef RAY_HPP
-#define RAY_HPP
-
+#ifndef RAYHPP
+#define RAYHPP
 #include "vec3.hpp"
 
-class ray {
+class ray
+{
     public:
-        ray() {}
-        ray(const color& origin, const color& direction)
-            : orig(origin), dir(direction)
-        {}
+        __device__ ray() {}
+        __device__ ray(const vec3& a, const vec3& b) { A = a; B = b; }
+        __device__ vec3 origin() const       { return A; }
+        __device__ vec3 direction() const    { return B; }
+        __device__ vec3 point_at_parameter(float t) const { return A + t*B; }
 
-        color origin() const  { return orig; }
-        color direction() const { return dir; }
-
-        color at(double t) const {
-            return orig + t*dir;
-        }
-    public:
-        point3 orig;
-        color dir;
+        vec3 A;
+        vec3 B;
 };
 
 #endif
