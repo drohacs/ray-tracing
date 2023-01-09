@@ -2,3 +2,5 @@ cudart
 cudart.o
 out.jpg
 out.ppm
+image.ppm
+main
